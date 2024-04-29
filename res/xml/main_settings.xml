@@ -8,19 +8,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/settings_title">
 
-    <SwitchPreferenceCompat
+    <SwitchPreference
         android:key="onepod_mode_pref"
         android:defaultValue="false"
-        android:title="@string/onepod_mode_title" 
+        android:title="@string/onepod_mode_title"
         android:summary="@string/onepod_mode_summary" />
 
-    <SwitchPreferenceCompat
+    <SwitchPreference
         android:key="auto_play_pref"
         android:defaultValue="false"
         android:title="@string/auto_play_title"
         android:summary="@string/auto_play_summary" />
 
-    <SwitchPreferenceCompat
+    <SwitchPreference
         android:key="auto_pause_pref"
         android:defaultValue="false"
         android:title="@string/auto_pause_title"

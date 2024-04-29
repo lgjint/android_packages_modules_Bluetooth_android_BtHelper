@@ -22,7 +22,7 @@ import android.os.UserHandle;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
-import androidx.preference.SwitchPreferenceCompat;
+import androidx.preference.SwitchPreference;
 
 import com.android.bluetooth.bthelper.Constants;
 import com.android.bluetooth.bthelper.R;
@@ -32,9 +32,9 @@ public class MainSettingsFragment extends PreferenceFragment implements
         OnPreferenceChangeListener {
 
     private SharedPreferences mSharedPrefs;
-    private SwitchPreferenceCompat mOnePodModePref;
-    private SwitchPreferenceCompat mAutoPlayPref;
-    private SwitchPreferenceCompat mAutoPausePref;
+    private SwitchPreference mOnePodModePref;
+    private SwitchPreference mAutoPlayPref;
+    private SwitchPreference mAutoPausePref;
 
     private boolean mSelfChange = false;
 
@@ -68,7 +68,7 @@ public class MainSettingsFragment extends PreferenceFragment implements
         }
     };
 
-    private void handleSwitchBroadcast(SwitchPreferenceCompat sp, boolean isChecked) {
+    private void handleSwitchBroadcast(SwitchPreference sp, boolean isChecked) {
         if (mSelfChange) {
             mSelfChange = false;
             return;
@@ -83,18 +83,18 @@ public class MainSettingsFragment extends PreferenceFragment implements
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mSharedPrefs = getContext().getSharedPreferences(Constants.PREFERENCES_BTHELPER, Context.MODE_PRIVATE);
 
-        mOnePodModePref = (SwitchPreferenceCompat) findPreference(Constants.KEY_ONEPOD_MODE);
+        mOnePodModePref = (SwitchPreference) findPreference(Constants.KEY_ONEPOD_MODE);
         mOnePodModePref.setEnabled(true);
         mOnePodModePref.setOnPreferenceChangeListener(this);
         if (PodsService.isSingleDevice()) {
             getPreferenceScreen().removePreference(mOnePodModePref);
         }
 
-        mAutoPlayPref = (SwitchPreferenceCompat) findPreference(Constants.KEY_AUTO_PLAY);
+        mAutoPlayPref = (SwitchPreference) findPreference(Constants.KEY_AUTO_PLAY);
         mAutoPlayPref.setEnabled(true);
         mAutoPlayPref.setOnPreferenceChangeListener(this);
 
-        mAutoPausePref = (SwitchPreferenceCompat) findPreference(Constants.KEY_AUTO_PAUSE);
+        mAutoPausePref = (SwitchPreference) findPreference(Constants.KEY_AUTO_PAUSE);
         mAutoPausePref.setEnabled(true);
         mAutoPausePref.setOnPreferenceChangeListener(this);
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (C) 2023 The Android Open Source Project
+  Copyright (C) 2021 The Android Open Source Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -32,8 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:paddingStart="@dimen/settingslib_switchbar_padding_left"
-        android:paddingEnd="@dimen/settingslib_switchbar_padding_right"
-        android:background="@drawable/settingslib_switch_bar_bg">
+        android:paddingEnd="@dimen/settingslib_switchbar_padding_right">
 
         <TextView
             android:id="@+id/switch_text"
@@ -45,19 +44,18 @@
             android:layout_gravity="center_vertical"
             android:ellipsize="end"
             android:textAppearance="?android:attr/textAppearanceListItem"
-            android:hyphenationFrequency="normalFast"
-            android:lineBreakWordStyle="phrase"
             style="@style/MainSwitchText.Settingslib" />
 
-        <com.google.android.material.materialswitch.MaterialSwitch
+        <Switch
             android:id="@android:id/switch_widget"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_gravity="center_vertical"
-            android:background="@null"
-            android:clickable="false"
             android:focusable="false"
-            android:theme="@style/Theme.Material3.DynamicColors.DayNight" />
+            android:clickable="false"
+            android:theme="@style/Switch.SettingsLib"/>
     </LinearLayout>
 
 </LinearLayout>
+
+

@@ -12,10 +12,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.util.Log;
 
 import androidx.slice.Slice;
 import androidx.slice.SliceProvider;
 import androidx.slice.builders.ListBuilder;
+
 
 import com.android.bluetooth.bthelper.Constants;
 import com.android.bluetooth.bthelper.R;
@@ -55,63 +57,65 @@ public class BtHelperSliceProvider extends SliceProvider {
 
     private Slice createBtHelperSlice(Uri sliceUri) {
         try {
-            if (mContext == null) return null;
+            if (mContext == null) {
+                return null;
+            }
         } catch (NullPointerException e) {
         }
 
-/*
-        final String ONEPOD_TITLE = mContext.getString(R.string.onepod_mode_title);
-        final boolean onePodModeEnabled = mSharedPrefs.getBoolean(Constants.KEY_ONEPOD_MODE, false);
 
-        final String AUTO_PLAY_TITLE = mContext.getString(R.string.auto_play_title);
-        final boolean autoPlayEnabled = mSharedPrefs.getBoolean(Constants.KEY_AUTO_PLAY, false);
+        // final String ONEPOD_TITLE = mContext.getString(R.string.onepod_mode_title);
+        // final boolean onePodModeEnabled = mSharedPrefs.getBoolean(Constants.KEY_ONEPOD_MODE, false);
 
-        final String AUTO_PAUSE_TITLE = mContext.getString(R.string.auto_pause_title);
-        final boolean autoPauseEnabled = mSharedPrefs.getBoolean(Constants.KEY_AUTO_PAUSE, false);
-*/
+        // final String AUTO_PLAY_TITLE = mContext.getString(R.string.auto_play_title);
+        // final boolean autoPlayEnabled = mSharedPrefs.getBoolean(Constants.KEY_AUTO_PLAY, false);
+
+        // final String AUTO_PAUSE_TITLE = mContext.getString(R.string.auto_pause_title);
+        // final boolean autoPauseEnabled = mSharedPrefs.getBoolean(Constants.KEY_AUTO_PAUSE, false);
+
 
         final String MORE_SETTINGS_TITLE = mContext.getString(R.string.more_settings_title);
         final String MORE_SETTINGS_SUBTITLE = mContext.getString(R.string.more_settings_subtitle);
 
         ListBuilder listBuilder = new ListBuilder(mContext, sliceUri, INFINITY);
 
-/*
-        listBuilder.addRow(new SliceCreator(
-                0,
-                ONEPOD_TITLE,
-                null,
-                onePodModeEnabled,
-                Constants.ACTION_PENDING_INTENT,
-                Constants.EXTRA_ONEPOD_CHANGED,
-                mContext,
-                Constants.SLICE_TOGGLE
-            ).getSettingRow(sliceUri));
+
+        // listBuilder.addRow(new SliceCreator(
+        //         0,
+        //         ONEPOD_TITLE,
+        //         null,
+        //         onePodModeEnabled,
+        //         Constants.ACTION_PENDING_INTENT,
+        //         Constants.EXTRA_ONEPOD_CHANGED,
+        //         mContext,
+        //         Constants.SLICE_TOGGLE
+        //     ).getSettingRow(sliceUri));
+
+        // listBuilder.addRow(new SliceCreator(
+        //         0,
+        //         AUTO_PLAY_TITLE,
+        //         null,
+        //         autoPlayEnabled,
+        //         Constants.ACTION_PENDING_INTENT,
+        //         Constants.EXTRA_AUTO_PLAY_CHANGED,
+        //         mContext,
+        //         Constants.SLICE_TOGGLE
+        //     ).getSettingRow(sliceUri));
+
+        // listBuilder.addRow(new SliceCreator(
+        //         0,
+        //         AUTO_PAUSE_TITLE,
+        //         null,
+        //         autoPauseEnabled,
+        //         Constants.ACTION_PENDING_INTENT,
+        //         Constants.EXTRA_AUTO_PAUSE_CHANGED,
+        //         mContext,
+        //         Constants.SLICE_TOGGLE
+        //     ).getSettingRow(sliceUri));
+
 
         listBuilder.addRow(new SliceCreator(
                 0,
-                AUTO_PLAY_TITLE,
-                null,
-                autoPlayEnabled,
-                Constants.ACTION_PENDING_INTENT,
-                Constants.EXTRA_AUTO_PLAY_CHANGED,
-                mContext,
-                Constants.SLICE_TOGGLE
-            ).getSettingRow(sliceUri));
-
-        listBuilder.addRow(new SliceCreator(
-                0,
-                AUTO_PAUSE_TITLE,
-                null,
-                autoPauseEnabled,
-                Constants.ACTION_PENDING_INTENT,
-                Constants.EXTRA_AUTO_PAUSE_CHANGED,
-                mContext,
-                Constants.SLICE_TOGGLE
-            ).getSettingRow(sliceUri));
-*/
-
-        listBuilder.addRow(new SliceCreator(
-                R.drawable.ic_chevron_right,
                 MORE_SETTINGS_TITLE,
                 MORE_SETTINGS_SUBTITLE,
                 false,
